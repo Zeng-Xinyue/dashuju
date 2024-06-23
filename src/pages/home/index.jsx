@@ -107,7 +107,7 @@ const Home = () => {
     navigate(`./${e.key}`);
   };
   return (
-    <div className="home" style={{ width: '100vw', height: '100vh' }}>
+    <div className="home" style={{ maxWidth: '100vw', height: '100vh' }}>
       <Menu
         onClick={onClick}
         style={{
