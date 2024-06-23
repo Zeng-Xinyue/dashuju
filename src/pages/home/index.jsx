@@ -4,6 +4,9 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
+  const str = String(window.location.hash)
+  const result = str.replace(/^#\//, "");
+
   const items = [
     {
       key: 'basic-data-analysic',
@@ -41,7 +44,7 @@ const Home = () => {
           children: [
             {
               key: 'customer-analysis',
-              label: '用户数据分析',
+              label: '用户情况分析',
             },
 
           ],
@@ -110,7 +113,7 @@ const Home = () => {
           width: 256,
           height: '100%',
         }}
-        defaultSelectedKeys={['basic-data-analysic', 'product', 'product-analysis']}
+        defaultSelectedKeys={[result]}
         defaultOpenKeys={['basic-data-analysic', 'predict', 'experiment']}
         mode="inline"
         items={items}
