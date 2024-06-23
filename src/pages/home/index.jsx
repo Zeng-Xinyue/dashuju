@@ -6,7 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
   const items = [
     {
-      key: 'basicDataAnalysic',
+      key: 'basic-data-analysic',
       label: '电商数据分析',
       icon: <AppstoreOutlined />,
       children: [
@@ -19,10 +19,7 @@ const Home = () => {
               key: 'product-analysis',
               label: '商品数据分析',
             },
-            {
-              key: 'product-search',
-              label: '商品数据查询',
-            },
+
           ],
         },
         {
@@ -34,10 +31,19 @@ const Home = () => {
               key: 'order-analysis',
               label: '订单数据分析',
             },
+
+          ],
+        },
+        {
+          key: 'customer',
+          label: '用户',
+          type: 'group',
+          children: [
             {
-              key: 'order-search',
-              label: '订单数据查询',
+              key: 'customer-analysis',
+              label: '用户数据分析',
             },
+
           ],
         },
       ],
@@ -48,56 +54,46 @@ const Home = () => {
       icon: <AppstoreOutlined />,
       children: [
         {
-          key: 'predict-search',
-          label: '数据预测查询',
-        },
-        {
-          key: 'predict-analysis',
+          key: 'recommended-program',
           label: '推荐方案分析',
         },
-      ],
-    },
-    {
-      key: 'experiment',
-      label: '实验组',
-      icon: <AppstoreOutlined />,
-      children: [
         {
-          key: 'experiment-data',
-          label: '实验组数据',
+          key: 'sales-strategy',
+          label: '捆绑销售策略',
         },
         {
-          key: 'experiment-analysis',
-          label: '实验组分析',
+          key: 'future',
+          label: '未来数据预测',
+          type: 'group',
+          children: [
+            {
+              key: 'sales-predict',
+              label: '销售额预测',
+            },
+            {
+              key: 'shipping-cost-predict',
+              label: '进货成本预测',
+            },
+            {
+              key: 'order-priority-predict',
+              label: '订单优先级预测',
+            },
+          ],
         },
       ],
     },
     // {
-    //   key: 'user',
-    //   label: '用户画像',
+    //   key: 'experiment',
+    //   label: '实验组',
     //   icon: <AppstoreOutlined />,
     //   children: [
     //     {
-    //       key: '5',
-    //       label: 'Option 5',
+    //       key: 'experiment-data',
+    //       label: '实验组数据',
     //     },
     //     {
-    //       key: '6',
-    //       label: 'Option 6',
-    //     },
-    //     {
-    //       key: 'sub3',
-    //       label: 'Submenu',
-    //       children: [
-    //         {
-    //           key: '7',
-    //           label: 'Option 7',
-    //         },
-    //         {
-    //           key: '8',
-    //           label: 'Option 8',
-    //         },
-    //       ],
+    //       key: 'experiment-analysis',
+    //       label: '实验组分析',
     //     },
     //   ],
     // },
@@ -107,19 +103,22 @@ const Home = () => {
     navigate(`./${e.key}`);
   };
   return (
-    <div className="home" style={{ maxWidth: '100vw', height: '100vh' }}>
+    <div className="home" style={{ maxWidth: '100vw', height: '100vh', position: 'relative' }}>
       <Menu
         onClick={onClick}
         style={{
           width: 256,
           height: '100%',
         }}
-        defaultSelectedKeys={['basicDataAnalysic']}
-        defaultOpenKeys={['basicDataAnalysic', 'predict', 'experiment']}
+        defaultSelectedKeys={['basic-data-analysic', 'product', 'product-analysis']}
+        defaultOpenKeys={['basic-data-analysic', 'predict', 'experiment']}
         mode="inline"
         items={items}
       />
-      <Outlet></Outlet>
+      <div style={{ position: 'absolute', right: '0', top: '0', width: 'calc(100vw - 256px)', minHeight: "100vh" }}>
+        <Outlet></Outlet>
+      </div>
+
     </div>
   );
 };
