@@ -74,10 +74,6 @@ const Home = () => {
               label: '销售额预测',
             },
             {
-              key: 'shipping-cost-predict',
-              label: '进货成本预测',
-            },
-            {
               key: 'order-priority-predict',
               label: '订单优先级预测',
             },

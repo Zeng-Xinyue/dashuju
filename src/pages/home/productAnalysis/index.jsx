@@ -246,10 +246,10 @@ const ProductAnalysis = () => {
     }, []);
   return (
     <>
-      <Card bordered={false} title="商品销售量分析">
+      <Card bordered={false} title="商品销售量前十排行榜">
       <div ref={chartRef1} style={{ width: '100%', height: '800px' }}></div>
       </Card>
-      <Card bordered={false} title="商品利润分析">
+      <Card bordered={false} title="商品利润前十排行榜">
       <div ref={chartRef0} style={{ width: '100%', height: '800px' }}></div>
       </Card>
       <Card bordered={false} title="商品销售类型占比和各类型商品销售数量占比">
